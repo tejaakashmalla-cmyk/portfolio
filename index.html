@@ -111,6 +111,41 @@ img{max-width:100%}
   box-shadow:0 8px 26px rgba(89,214,255,.18);
 }
 
+
+.brand small{
+  color:#71849a;
+  font:600 9px var(--mono);
+  letter-spacing:.08em;
+  margin-left:2px;
+}
+.live-clock{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#b8cadb;
+  font:600 10px var(--mono);
+  letter-spacing:.06em;
+}
+.live-clock::before{
+  content:"";
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--mint);
+  box-shadow:0 0 10px rgba(101,244,198,.8);
+  animation:pulse 1.5s ease-in-out infinite;
+}
+.project{cursor:pointer}
+.project:focus-visible{
+  outline:2px solid var(--cyan);
+  outline-offset:3px;
+}
+.all-repos{
+  display:flex;
+  justify-content:center;
+  margin-top:24px;
+}
+
 /* HERO */
 .hero{padding:148px 0 86px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(380px,.85fr);gap:58px;align-items:center}
@@ -492,7 +527,7 @@ footer{padding:38px 0 75px;color:#60738a;font:500 10px var(--mono)}
   <div class="nav">
     <a class="brand" href="#top" aria-label="Akash home">
       <span class="brand-mark">A</span>
-      <span>AKASH / BUILD SYSTEM</span>
+      <span>M.TEJA AKASH <small>(M-T-A)</small></span>
     </a>
     <div class="nav-links">
       <a href="#work">Work</a>
@@ -552,7 +587,7 @@ footer{padding:38px 0 75px;color:#60738a;font:500 10px var(--mono)}
 
         <div class="console-bottom">
           <div class="console-label">LIVE TELEMETRY</div>
-          <div class="console-label">NO STATIC IDEAS DETECTED</div>
+          <div class="live-clock" id="liveClock" aria-live="polite">--:--:-- IST</div>
         </div>
       </div>
     </div>
@@ -638,7 +673,7 @@ footer{padding:38px 0 75px;color:#60738a;font:500 10px var(--mono)}
     </div>
 
     <div class="projects">
-      <article class="project reveal">
+      <article class="project reveal" data-repo="https://github.com/tejaakashmalla-cmyk/FlowLens" tabindex="0" role="link" aria-label="Open FlowLens repository on GitHub">
         <div class="project-top"><span class="project-id">PROJECT / 01</span><span class="project-state">AI / SYSTEMS</span></div>
         <h3>FlowLens</h3>
         <div class="type">Software architecture intelligence</div>
@@ -646,7 +681,7 @@ footer{padding:38px 0 75px;color:#60738a;font:500 10px var(--mono)}
         <div class="project-footer"><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">GitHub API</span></div><a class="project-arrow" href="https://github.com/tejaakashmalla-cmyk" target="_blank" rel="noopener">↗</a></div>
       </article>
 
-      <article class="project reveal">
+      <article class="project reveal" data-repo="https://github.com/tejaakashmalla-cmyk/Right-One" tabindex="0" role="link" aria-label="Open Right-One repository on GitHub">
         <div class="project-top"><span class="project-id">PROJECT / 02</span><span class="project-state">PRODUCT</span></div>
         <h3>Right-One</h3>
         <div class="type">Product price intelligence</div>
@@ -654,7 +689,7 @@ footer{padding:38px 0 75px;color:#60738a;font:500 10px var(--mono)}
         <div class="project-footer"><div class="tags"><span class="tag">Flutter</span><span class="tag">Search</span><span class="tag">Comparison</span></div><a class="project-arrow" href="https://github.com/tejaakashmalla-cmyk" target="_blank" rel="noopener">↗</a></div>
       </article>
 
-      <article class="project reveal">
+      <article class="project reveal" data-repo="https://github.com/tejaakashmalla-cmyk/job-hunter-app" tabindex="0" role="link" aria-label="Open Job Hunter repository on GitHub">
         <div class="project-top"><span class="project-id">PROJECT / 03</span><span class="project-state">WEB / PRODUCT</span></div>
         <h3>Job Hunter</h3>
         <div class="type">Job discovery application</div>
@@ -662,7 +697,7 @@ footer{padding:38px 0 75px;color:#60738a;font:500 10px var(--mono)}
         <div class="project-footer"><div class="tags"><span class="tag">JavaScript</span><span class="tag">Search</span><span class="tag">Web App</span></div><a class="project-arrow" href="https://github.com/tejaakashmalla-cmyk/job-hunter-app" target="_blank" rel="noopener">↗</a></div>
       </article>
 
-      <article class="project reveal">
+      <article class="project reveal" data-repo="https://github.com/tejaakashmalla-cmyk/jarvis-ai" tabindex="0" role="link" aria-label="Open JARVIS AI repository on GitHub">
         <div class="project-top"><span class="project-id">PROJECT / 04</span><span class="project-state">AI / PYTHON</span></div>
         <h3>JARVIS AI</h3>
         <div class="type">AI assistant experiment</div>
@@ -670,7 +705,7 @@ footer{padding:38px 0 75px;color:#60738a;font:500 10px var(--mono)}
         <div class="project-footer"><div class="tags"><span class="tag">Python</span><span class="tag">AI</span><span class="tag">Automation</span></div><a class="project-arrow" href="https://github.com/tejaakashmalla-cmyk/jarvis-ai" target="_blank" rel="noopener">↗</a></div>
       </article>
 
-      <article class="project reveal">
+      <article class="project reveal" data-repo="https://github.com/tejaakashmalla-cmyk/certificate-generator" tabindex="0" role="link" aria-label="Open Certificate Generator repository on GitHub">
         <div class="project-top"><span class="project-id">PROJECT / 05</span><span class="project-state">AUTOMATION</span></div>
         <h3>Certificate Generator</h3>
         <div class="type">Document automation tool</div>
@@ -678,13 +713,19 @@ footer{padding:38px 0 75px;color:#60738a;font:500 10px var(--mono)}
         <div class="project-footer"><div class="tags"><span class="tag">JavaScript</span><span class="tag">Templates</span><span class="tag">Automation</span></div><a class="project-arrow" href="https://github.com/tejaakashmalla-cmyk/certificate-generator" target="_blank" rel="noopener">↗</a></div>
       </article>
 
-      <article class="project reveal">
+      <article class="project reveal" data-repo="https://github.com/tejaakashmalla-cmyk/wakevoice" tabindex="0" role="link" aria-label="Open WakeVoice repository on GitHub">
         <div class="project-top"><span class="project-id">PROJECT / 06</span><span class="project-state">AI / VOICE</span></div>
         <h3>WakeVoice</h3>
         <div class="type">AI-powered smart alarm</div>
         <p>Smart alarm that wakes you up with personalized voice messages in English and Telugu, built with Flutter, FastAPI and AI voice technology.</p>
         <div class="project-footer"><div class="tags"><span class="tag">Flutter</span><span class="tag">FastAPI</span><span class="tag">AI Voice</span></div><a class="project-arrow" href="https://github.com/tejaakashmalla-cmyk/wakevoice" target="_blank" rel="noopener">↗</a></div>
       </article>
+    </div>
+
+    <div class="all-repos reveal">
+      <a class="btn btn-ghost" href="https://github.com/tejaakashmalla-cmyk?tab=repositories" target="_blank" rel="noopener">
+        View all repositories ↗
+      </a>
     </div>
   </div>
 </section>
@@ -864,6 +905,37 @@ footer{padding:38px 0 75px;color:#60738a;font:500 10px var(--mono)}
     });
   }, {threshold:.12});
   document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+  // Live local time (India Standard Time)
+  const liveClock = document.getElementById("liveClock");
+  function updateClock(){
+    if(!liveClock) return;
+    const now = new Date();
+    const time = new Intl.DateTimeFormat("en-IN", {
+      timeZone:"Asia/Kolkata",
+      hour:"2-digit",
+      minute:"2-digit",
+      second:"2-digit",
+      hour12:false
+    }).format(now);
+    liveClock.textContent = `${time} IST`;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // Entire project cards open their GitHub repository.
+  document.querySelectorAll(".project[data-repo]").forEach(card => {
+    card.addEventListener("click", event => {
+      if(event.target.closest("a")) return;
+      window.open(card.dataset.repo, "_blank", "noopener,noreferrer");
+    });
+    card.addEventListener("keydown", event => {
+      if((event.key === "Enter" || event.key === " ") && !event.target.closest("a")){
+        event.preventDefault();
+        window.open(card.dataset.repo, "_blank", "noopener,noreferrer");
+      }
+    });
+  });
 
   // command palette
   const palette = document.getElementById("palette");
